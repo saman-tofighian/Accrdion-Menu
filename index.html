@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            width: 50%;
+            margin: 100px auto;
+        }
+        li{
+            list-style-type: none;
+            height: 40px;
+            border-bottom: 1px solid #000;
+            overflow: hidden;
+            transition: 1s linear;
+        }
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            background: #28d;
+            color: plum;
+            cursor: pointer;
+        }
+        p{
+            text-align: justify;
+            background-color: black;
+            color: #fff;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li data-name="off">
+            <h2>Menu Click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </li>
+        <li data-name="off">
+            <h2>Menu Click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, consectetur. Cum at eius consequuntur beatae totam, quam, distinctio delectus</p>
+        </li>
+        <li data-name="off">
+            <h2>Menu Click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, consectetur. Cum at eius consequuntur beatae totam, quam, distinctio delectus, ullam magnam dignissimos non. Hic accusamus iusto sunt repellendus ratione vero?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, consectetur. Cum at eius consequuntur beatae totam, quam, distinctio delectus, ullam magnam dignissimos non. Hic accusamus iusto sunt repellendus ratione vero?
+            </p>
+        </li>
+        <li data-name="off">
+            <h2>Menu Click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, consectetur. Cum at eius consequuntur beatae totam, quam, distinctio delectus, ullam magnam dignissimos non. Hic accusamus iusto sunt repellendus ratione vero?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, consectetur. Cum at eius consequuntur beatae totam, quam, distinctio delectus, ullam magnam dignissimos non. Hic accusamus iusto sunt repellendus ratione vero?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, consectetur. Cum at eius consequuntur beatae totam, quam, distinctio delectus, ullam magnam dignissimos non. Hic accusamus iusto sunt repellendus ratione vero?
+            </p>
+        </li>
+    </ul>
+</body>
+<script>
+    let _all = document.querySelectorAll('li')
+
+    _all.forEach((item , index) =>{
+        item.addEventListener('click', ()=>{
+            let y = item.children
+            y = y[1].clientHeight
+
+            let temp = item.getAttribute('data-name')
+
+            for(i=0; i<_all.length; i++){
+                _all[i].style.height = '40px'
+                if(index != i){
+                    _all[i].setAttribute('data-name', 'off')
+                }
+            }
+
+
+
+            if(temp == 'off'){
+                item.style.height = (y + 40) + 'px'
+                item.setAttribute('data-name', 'on')
+            }
+            else{
+                item.style.height = '40px'
+                item.setAttribute('data-name', 'off')
+            }
+        })
+    })
+</script>
+</html>
